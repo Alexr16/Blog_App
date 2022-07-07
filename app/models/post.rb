@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :comments
   has_many :likes
+  validate :title, presence: true
 
   after_save :update_posts_counter
 
