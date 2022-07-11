@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
 describe 'GET #index' do
-    before(:each) { get users_path }  # get(:index)
+    before(:each) { get users_path }
     it "is a success" do
       expect(response).to have_http_status(:ok)
     end
@@ -13,6 +13,21 @@ describe 'GET #index' do
 
     it 'should render the correct text in the index template' do
         expect(response.body).to include('This is the Users index page.')
+    end
+end
+
+describe 'GET #show' do
+    before(:each) { get user_path(1) }
+    it "is a success" do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders 'show' template" do
+      expect(response).to render_template(:show)
+    end
+
+    it 'should render the correct text in the show template' do
+        expect(response.body).to include('This is the Users show page.')
     end
 end
 end
