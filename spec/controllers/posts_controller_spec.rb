@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-describe 'GET #index' do
+  describe 'GET #index' do
     before(:each) { get user_posts_path(2) }
-    it "is a success" do
+    it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
@@ -12,14 +12,14 @@ describe 'GET #index' do
     end
 
     it 'should render the correct text in the show template' do
-        expect(response.body).to include('This is the Posts index page.')
+      expect(response.body).to include('This is the Posts index page.')
     end
-end
+  end
 
-describe 'GET #show' do
-    before(:each) { get user_post_path(2,1) }
+  describe 'GET #show' do
+    before(:each) { get user_post_path(2, 1) }
 
-    it "is a success" do
+    it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
@@ -28,7 +28,7 @@ describe 'GET #show' do
     end
 
     it 'should render the correct text in the show template' do
-        expect(response.body).to include('This is the Posts show page.')
+      expect(response.body).to include('This is the Posts show page.')
     end
-end
+  end
 end
