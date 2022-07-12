@@ -11,7 +11,19 @@
   </head>
 
   <body>
-    <h1>Users#show</h1>
-    <p>This is the Users show page.</p>
+    <%= render "partials/user_card", user: @user %>
+    <div class="bio_container">
+      <h2>Bio</h2>
+      <p class="bio_paragraph"><%= @user.bio %></p>
+    </div>
+    <% @user.last_three_posts.each do |post| %>
+      <%= render "partials/post_card", post: post %>
+    <% end %>
+    <div class="see_posts">
+      <button class="button">
+        <%= link_to "See all posts", user_posts_path(@user) %>
+      </button>
+      <%= render 'partials/back_button'%>
+    </div>
   </body>
 </html>
