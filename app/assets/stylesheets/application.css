@@ -23,6 +23,10 @@ a:link {
   color: black;
 }
 
+.link_class {
+  color: black;
+}
+
 .user_card {
   display: flex;
   justify-content: space-between;
