@@ -12,17 +12,9 @@
 
   <body>
     <% @users.each do |user| %>
-      <div class="user_card">
-        <%= link_to user_path(user.id) do %>
-        <div class="photo_container">
-          <img src="<%= user.photo%>" alt=""User photo>
-        </div>
-        <div class="user_info">
-          <h2><%= user.name %></h2>
-          <p>Number of posts: <%= user.post_counter %></p>
-        </div>
-        <% end %>
-      </div>
+      <%= link_to user_path(user.id) do%>
+        <%= render "partials/user_card", user: user %>
+      <%end%>
     <% end %>
   </body>
 </html>
