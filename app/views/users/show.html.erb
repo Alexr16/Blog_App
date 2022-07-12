@@ -24,6 +24,9 @@
         <%= link_to "See all posts", user_posts_path(@user), {:class => "link_class"} %>
       </button>
       <%= render 'partials/back_button'%>
+       <button class="button">
+        <%= link_to "New post", new_post_path, {:class => "link_class"} %>
+      </button>
     </div>
   </body>
 </html>
