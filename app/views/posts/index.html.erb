@@ -11,7 +11,20 @@
   </head>
 
   <body>
-    <h1>Posts#index</h1>
-    <p>This is the Posts index page.</p>
+    <%= render "partials/user_card", user: @user %>
+    <% @user.last_three_posts.each do |post| %>
+      <%= link_to user_post_path(@user.id, post.id), {:class => "link_class"} do%>
+        <%= render "partials/post_card", post: post %>
+      <% end %>
+      <div class="comments_container">
+        <% post.last_five_comments.each do |comment| %>
+          <%= render "partials/comment_card", comment: comment %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="see_posts">
+      <button class="button">Pagination</button>
+      <%= render 'partials/back_button'%>
+    </div>
   </body>
 </html>

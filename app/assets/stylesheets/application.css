@@ -13,3 +13,112 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 1rem 2rem;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+.link_class {
+  color: black;
+}
+
+.user_card {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  margin: 2rem 1rem;
+}
+
+.photo_container {
+  margin-right: 2rem;
+  border: 2px solid black;
+}
+
+.user_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.user_name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-block: 0;
+  padding-right: 1rem;
+}
+
+.number_of_posts {
+  font-size: 1rem;
+  padding-top: 1.5rem;
+  margin-block: 0;
+  align-self: flex-end;
+}
+
+.bio_container {
+  border: 2px solid black;
+  padding: 0.5rem;
+  margin: 0.5rem 1rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-block: 0;
+}
+
+.bio_paragraph {
+  font-size: 1.2rem;
+}
+
+.see_posts {
+  margin: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.post_container {
+  margin: 0.5rem 1rem;
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+
+.comments_counter {
+  font-size: 1rem;
+  text-align: right;
+}
+
+.button {
+  appearance: none;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.comments_container {
+  margin: 0.5rem 1rem;
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+
+.comments_counter2 {
+  font-size: 1rem;
+  margin-block: 0;
+}
+
+.post_header {
+  display: flex;
+  justify-content: space-between;
+}

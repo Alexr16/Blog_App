@@ -11,7 +11,22 @@
   </head>
 
   <body>
-    <h1>Posts#show</h1>
-    <p>This is the Posts show page.</p>
+    <div class="post_container">
+      <div class="post_header">
+        <h2><%= @post.title %> by <%= @post.author.name %></h2>
+        <p class="comments_counter2">Comments <%= @post.comments_counter %>, Likes <%= @post.likes_counter %></p>
+      </div>
+      <div class="post_text">
+        <p><%= @post.text %></p>
+      </div>
+    </div>
+    <div class="comments_container">
+        <% @comments.each do |comment| %>
+          <%= render "partials/comment_card", comment: comment %>
+        <% end %>
+    </div>
+    <div class="see_posts">
+      <%= render 'partials/back_button'%>
+    </div>
   </body>
 </html>
