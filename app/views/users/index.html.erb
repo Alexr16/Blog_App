@@ -11,7 +11,18 @@
   </head>
 
   <body>
-    <h1>Users#index</h1>
-    <p>This is the Users index page.</p>
+    <% @users.each do |user| %>
+      <div class="user_card">
+        <%= link_to user_path(user.id) do %>
+        <div class="photo_container">
+          <img src="<%= user.photo%>" alt=""User photo>
+        </div>
+        <div class="user_info">
+          <h2><%= user.name %></h2>
+          <p>Number of posts: <%= user.post_counter %></p>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
   </body>
 </html>
