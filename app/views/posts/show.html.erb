@@ -13,8 +13,8 @@
   <body>
     <div class="post_container">
       <div class="post_header">
-        <h1><%= @post.title %> by <%= @post.author.name %></h1>
-        <p class="comments_counter">Comments <%= @post.comments_counter %>, Likes <%= @post.likes_counter %></p>
+        <h2><%= @post.title %> by <%= @post.author.name %></h2>
+        <p class="comments_counter2">Comments <%= @post.comments_counter %>, Likes <%= @post.likes_counter %></p>
       </div>
       <div class="post_text">
         <p><%= @post.text %></p>
@@ -25,6 +25,8 @@
           <%= render "partials/comment_card", comment: comment %>
         <% end %>
     </div>
-    <%= render 'partials/back_button'%>
+    <div class="see_posts">
+      <%= render 'partials/back_button'%>
+    </div>
   </body>
 </html>
