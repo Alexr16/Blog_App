@@ -3,5 +3,8 @@
     <p class="post_paragraph"><%= post.text %></p>
     <div class="comments_and_likes">
         <p class="comments_counter">Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></p>
+        <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes", class: 'comments_counter' do |like| %>
+            <%= like.submit "Like Post", class: "button like_button"%>
+        <% end %>
     </div> 
 </div>
