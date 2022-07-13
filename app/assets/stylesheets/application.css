@@ -100,7 +100,9 @@ h2 {
   background-color: white;
   border: 2px solid black;
   color: black;
-  padding: 1rem;
+  width: fit-content;
+  margin: 0;
+  padding: 0.3rem 0.5rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -150,13 +152,18 @@ h2 {
   border: 1px solid black;
 }
 
-.submit {
-  width: fit-content;
-  margin: 0;
-  padding: 0.3rem 0.5rem;
-}
-
 .submit_button_container {
   display: flex;
   justify-content: center;
+}
+
+.comment_container {
+  margin: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment_title_form {
+  margin-bottom: 0.5rem;
 }
