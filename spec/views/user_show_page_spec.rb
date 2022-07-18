@@ -23,18 +23,17 @@ RSpec.describe 'User show page', type: :system do
     end
 
     it 'Shows the user bio' do
-        expect(page).to have_content('Hello world')
+      expect(page).to have_content('Hello world')
     end
 
     it 'Shows the user first three posts' do
-
-        expect(page).to have_content('Test')
-        expect(page).to have_content('Test1')
-        expect(page).to have_content('Test2')
+      expect(page).to have_content('Test')
+      expect(page).to have_content('Test1')
+      expect(page).to have_content('Test2')
     end
 
     it 'Shows button to see all posts' do
-        expect(page).to have_link('See all posts')
+      expect(page).to have_link('See all posts')
     end
 
     it 'Redirects to the posts show page when clicking on the users post' do
