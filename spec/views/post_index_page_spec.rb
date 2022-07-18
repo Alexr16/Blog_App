@@ -38,7 +38,7 @@ RSpec.describe 'User index page', type: :system do
       expect(page).to have_content('Comments 1')
     end
 
-    it 'Shows the post comment counter' do
+    it 'Shows the post likes counter' do
       expect(page).to have_content('Likes 0')
     end
 
