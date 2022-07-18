@@ -1,8 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
+  before :each do
+    @user = User.create(name: 'Juan', photo: 'Photo', bio: 'Hello world')
+    @post = @user.posts.create(title: 'Test', text: 'This is the Posts page.', author_id: @user.id)
+  end
+
   describe 'GET #index' do
-    before(:each) { get user_posts_path(2) }
+    before { get user_posts_path(@user, @post) }
     it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
@@ -12,12 +17,12 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'should render the correct text in the show template' do
-      expect(response.body).to include('This is the Posts index page.')
+      expect(response.body).to include('This is the Posts page.')
     end
   end
 
   describe 'GET #show' do
-    before(:each) { get user_post_path(2, 1) }
+    before { get user_post_path(@user, @post) }
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
@@ -28,7 +33,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'should render the correct text in the show template' do
-      expect(response.body).to include('This is the Posts show page.')
+      expect(response.body).to include('This is the Posts page.')
     end
   end
 end
