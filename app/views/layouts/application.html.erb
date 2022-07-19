@@ -14,11 +14,11 @@
      <nav>
        <ul>
          <li>
-           <p> <%= link_to "Logo", root_path %></p>
            <% if user_signed_in? %>
-           <%= link_to 'Home', users_path%>
-           <%else%>
-           <%= link_to 'LogIn', new_user_session_path %>
+            <%= link_to 'Home', users_path, {:class => "link_class"} %>
+            <button class="button">
+              <%= link_to "LogOut", destroy_user_session_path, {:class => "link_class" } %>
+            </button>
            <%end%>
          </li>
        </ul>
