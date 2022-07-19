@@ -170,3 +170,17 @@ h2 {
 .comment_title_form {
   margin-bottom: 0.5rem;
 }
+
+.field {
+  margin-bottom: 0.5rem;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: end;
+}
+
+.menu-link {
+  padding-right: 0.5rem;
+}
