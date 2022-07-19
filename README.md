@@ -30,7 +30,7 @@ To get a local copy of the project, follow these steps:
 ```
 
 
-## Author
+## Authors
 
 👤 **Jorge Rios**
 
@@ -38,9 +38,13 @@ To get a local copy of the project, follow these steps:
 - Twitter: [@ReveloJ](https://twitter.com/ReveloJ)
 - LinkedIn: [Jorge Ríos](https://www.linkedin.com/in/jorgeriosr/)
 
+👤 **Chris Clothier**
+
+- GitHub: [@CRClothier](https://github.com/CRClothier)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/crclothier/)
 
 ## 🤝 Contributing
-
+  
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/Alexr16/Blog-App/issues).

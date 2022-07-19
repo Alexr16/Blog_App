@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
+  before :each do
+    @user = User.create(name: 'Juan', photo: 'Photo', bio: 'Hello world')
+  end
   describe 'GET #index' do
-    before(:each) { get users_path }
+    before { get users_path(@user) }
     it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
@@ -12,12 +15,12 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'should render the correct text in the index template' do
-      expect(response.body).to include('This is the Users index page.')
+      expect(response.body).to include('Juan')
     end
   end
 
   describe 'GET #show' do
-    before(:each) { get user_path(1) }
+    before { get user_path(@user) }
     it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
@@ -27,7 +30,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'should render the correct text in the show template' do
-      expect(response.body).to include('This is the Users show page.')
+      expect(response.body).to include('Juan')
     end
   end
 end
