@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1, defaults: { format: :json } do #to specify the default format
+      resources :posts, only: [:index]
+    end
+  end
+
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
