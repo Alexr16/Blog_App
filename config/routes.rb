@@ -16,5 +16,6 @@ Rails.application.routes.draw do
       resources :likes, only: [:create]
     end
   end
-  resources :posts, only: [:new, :create]
+  resources :posts, only: [:new, :create, :destroy]
+  # delete '/posts/:id/delete', to: 'posts#delete'
 end
