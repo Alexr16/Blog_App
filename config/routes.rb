@@ -17,5 +17,4 @@ Rails.application.routes.draw do
     end
   end
   resources :posts, only: [:new, :create, :destroy]
-  # delete '/posts/:id/delete', to: 'posts#delete'
 end
