@@ -5,6 +5,11 @@
         <p class="comments_counter">Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></p>
         <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes", class: 'comments_counter' do |like| %>
             <%= like.submit "Like Post", class: "button like_button"%>
-        <% end %>
+        <%end%>
     </div> 
+    <%if can? :destroy, post %>
+        <div>
+                <%=button_to "Delete post", {:controller => :posts, :action => 'destroy', :id => post.id}, :method => :delete, class: 'button' %>
+        </div>
+    <%end%>
 </div>
