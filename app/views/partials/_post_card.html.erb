@@ -1,10 +1,17 @@
 <div class="post_container">
-    <h2 class="post_title">Post <%= post.title %></h2>
+    <%= link_to user_post_path@user.id, post.id, :class => "post_list_class" do%>
+        <h2 class="post_title">Post <%= post.title %></h2>
+    <%end%>
     <p class="post_paragraph"><%= post.text %></p>
     <div class="comments_and_likes">
         <p class="comments_counter">Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></p>
         <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes", class: 'comments_counter' do |like| %>
             <%= like.submit "Like Post", class: "button like_button"%>
-        <% end %>
+        <%end%>
     </div> 
+    <%if can? :destroy, post %>
+        <div>
+                <%=button_to "Delete post", {:controller => :posts, :action => 'destroy', :id => post.id}, :method => :delete, class: 'button' %>
+        </div>
+    <%end%>
 </div>
