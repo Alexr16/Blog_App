@@ -9,6 +9,15 @@ class CommentsController < ApplicationController
     redirect_to user_post_path(@user.id, @post.id)
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = Post.find(@comment.post_id)
+    @post.update(comments_counter: @post.comments.count - 1)
+    @post.save
+    @comment.destroy
+    redirect_to user_post_path(current_user, @comment.post_id)
+  end
+
   private
 
   def comments_params
