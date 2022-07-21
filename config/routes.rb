@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1, defaults: { format: :json } do #to specify the default format
       resources :users, only: [:index] do
         resources :posts, only: [:index] do
-          resources :comments, only: [:index]
+          resources :comments, only: [:index, :create]
         end
       end
     end
