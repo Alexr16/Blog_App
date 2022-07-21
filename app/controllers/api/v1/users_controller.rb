@@ -13,8 +13,7 @@ class Api::V1::UsersController < ApplicationController
   def create
     user = User.create!(user_params)
     auth_token = AuthenticateUser.new(user.email, user.password).call
-    response = { auth_token: }
-    json_response(response, :created)
+    render json: { status: 201, message: 'User created successfully!', content: { auth_token: } }
   end
 
   private
