@@ -6,6 +6,9 @@ Rails.application.routes.draw do
           resources :comments, only: [:index, :create]
         end
       end
+      resources :users
+        post '/auth/login', to: 'authentication#login'
+        get '/*a', to: 'application#not_found'
     end
   end
 
