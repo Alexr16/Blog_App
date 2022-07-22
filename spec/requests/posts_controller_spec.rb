@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   before :each do
-    @user = User.new(name: 'Juan', photo: 'Photo', bio: 'Hello world', email: 'jorge@icloud.com', password: '123456', password_confirmation: '123456', role: 'admin')
+    @user = User.new(name: 'Juan', photo: 'Photo', bio: 'Hello world', email: 'jorge@icloud.com', password: '123456',
+                     password_confirmation: '123456', role: 'admin')
     @user.skip_confirmation!
     @user.save!
     @post = @user.posts.create(title: 'Test', text: 'This is the Posts page.', author_id: @user.id)
@@ -24,7 +25,7 @@ RSpec.describe 'Posts', type: :request do
   end
 
   describe 'GET #show' do
-    before do 
+    before do
       get user_post_path(@user, @post)
     end
 

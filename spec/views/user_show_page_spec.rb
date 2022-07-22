@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe 'User show page', type: :system do
   describe 'index page' do
     before :each do
-      @chris = User.new(name: 'Chris', photo: 'https://i.stack.imgur.com/YQu5k.png', bio: 'Hello world', email: 'jorge@icloud.com', password: '123456', role: 'admin')
+      @chris = User.new(name: 'Chris', photo: 'https://i.stack.imgur.com/YQu5k.png', bio: 'Hello world',
+                        email: 'jorge@icloud.com', password: '123456', role: 'admin')
       @chris.skip_confirmation!
       @chris.save!
       @post = @chris.posts.create(title: 'Test', text: 'This is the Posts page.', author_id: @chris.id)
       @post1 = @chris.posts.create(title: 'Test1', text: 'This is the Posts page. Test1', author_id: @chris.id)
       @post2 = @chris.posts.create(title: 'Test2', text: 'This is the Posts page. Test2', author_id: @chris.id)
-      only_path = true
       visit user_path(@chris)
     end
 
@@ -41,7 +41,7 @@ RSpec.describe 'User show page', type: :system do
 
     it 'Redirects to the posts show page when clicking on the users post' do
       click_link 'Post Test1'
-      expect(page).to have_current_path ("/users/#{@chris.id}/posts/#{@post1.id}?class=post_list_class")
+      expect(page).to have_current_path("/users/#{@chris.id}/posts/#{@post1.id}?class=post_list_class")
     end
 
     it 'Redirects to the posts index page when clicking on the see all posts button' do

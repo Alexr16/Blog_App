@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'User index page', type: :system do
   describe 'index page' do
     before :each do
-      @jorge = User.new(name: 'Juan', photo: 'https://i.stack.imgur.com/YQu5k.png', bio: 'Hello world', email: 'jorge@icloud.com', password: '123456', role: 'admin')
+      @jorge = User.new(name: 'Juan', photo: 'https://i.stack.imgur.com/YQu5k.png', bio: 'Hello world',
+                        email: 'jorge@icloud.com', password: '123456', role: 'admin')
       @jorge.skip_confirmation!
       @jorge.save!
       visit root_path

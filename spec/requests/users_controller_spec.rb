@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   before :each do
     @user = User.new(name: 'Juan', photo: 'Photo', bio: 'Hello world',
-       email: 'jorge@icloud.com', password: '123456', password_confirmation: '123456', role: 'admin')
+                     email: 'jorge@icloud.com', password: '123456', password_confirmation: '123456', role: 'admin')
     @user.skip_confirmation!
     @user.save!
   end

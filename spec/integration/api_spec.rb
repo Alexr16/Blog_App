@@ -1,9 +1,7 @@
 require 'swagger_helper'
 
 describe 'API' do
-
   path '/api/v1/users' do
-
     post 'Creates a user' do
       tags 'Users'
       consumes 'application/json', 'application/xml'
@@ -14,7 +12,7 @@ describe 'API' do
           email: { type: :string },
           password: { type: :string }
         },
-        required: [ 'name', 'status' ]
+        required: %w[name status]
       }
 
       response '201', 'user created' do
@@ -30,21 +28,20 @@ describe 'API' do
   end
 
   path '/api/v1/users/{user_id}/posts/{post_id}/commnets' do
-
     get 'Retrieves Post commnets' do
       tags 'Users'
       produces 'application/json', 'application/xml'
-      parameter user_is: :user_id, post_id: :post_id, :in => :path, :type => :string
+      parameter user_is: :user_id, post_id: :post_id, in: :path, type: :string
 
       response '200', 'Post comments' do
         schema type: :object,
-          properties: {
-            user_id: { type: :integer, },
-            post_id: { type: :integer, },
-            email: { type: :string },
-            password: { type: :string }
-          },
-          required: [ 'user_id', 'post_id', 'status' ]
+               properties: {
+                 user_id: { type: :integer },
+                 post_id: { type: :integer },
+                 email: { type: :string },
+                 password: { type: :string }
+               },
+               required: %w[user_id post_id status]
         let(:user_id) { User.create(name: 'Chris', photo: 'https://i.stack.imgur.com/YQu5k.png', bio: 'Hello world', email: 'jorge@icloud.com', password: '123456', role: 'admin').id }
         let(:post_id) { User.posts.create(title: 'Test', text: 'This is the Posts page.', author_id: User.id).id }
         run_test!
@@ -61,5 +58,4 @@ describe 'API' do
       end
     end
   end
-
 end

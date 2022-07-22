@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'User show page', type: :system do
   describe 'index page' do
     before :each do
-      @chris = User.new(name: 'Chris', photo: 'https://i.stack.imgur.com/YQu5k.png', bio: 'Hello world', email: 'jorge@icloud.com', password: '123456', role: 'admin')
+      @chris = User.new(name: 'Chris', photo: 'https://i.stack.imgur.com/YQu5k.png', bio: 'Hello world',
+                        email: 'jorge@icloud.com', password: '123456', role: 'admin')
       @chris.skip_confirmation!
       @chris.save!
       @post = @chris.posts.create(title: 'Test', text: 'This is the Posts page.', author_id: @chris.id)
