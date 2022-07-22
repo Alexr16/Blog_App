@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   before :each do
-    @user = User.create(name: 'Juan', photo: 'Photo', bio: 'Hello world')
+    @user = User.new(name: 'Juan', photo: 'Photo', bio: 'Hello world', email: 'jorge@icloud.com', password: '123456', password_confirmation: '123456', role: 'admin')
+    @user.skip_confirmation!
+    @user.save!
     @post = @user.posts.create(title: 'Test', text: 'This is the Posts page.', author_id: @user.id)
   end
 
@@ -22,7 +24,9 @@ RSpec.describe 'Posts', type: :request do
   end
 
   describe 'GET #show' do
-    before { get user_post_path(@user, @post) }
+    before do 
+      get user_post_path(@user, @post)
+    end
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
