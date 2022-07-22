@@ -29,28 +29,34 @@ describe 'API' do
     end
   end
 
-  path '/api/v1/users/{id}/posts' do
+  path '/api/v1/users/{user_id}/posts/{post_id}/commnets' do
 
-    get 'Retrieves posts for a user' do
+    get 'Retrieves Post commnets' do
       tags 'Users'
       produces 'application/json', 'application/xml'
-      parameter user_id: :user_id, :in => :path, :type => :string
+      parameter user_is: :user_id, post_id: :post_id, :in => :path, :type => :string
 
-      response '200', 'Users posts' do
+      response '200', 'Post comments' do
         schema type: :object,
           properties: {
             user_id: { type: :integer, },
+            post_id: { type: :integer, },
             email: { type: :string },
             password: { type: :string }
           },
-          required: [ 'user_id', 'status' ]
-
+          required: [ 'user_id', 'post_id', 'status' ]
         let(:user_id) { User.create(name: 'Chris', photo: 'https://i.stack.imgur.com/YQu5k.png', bio: 'Hello world', email: 'jorge@icloud.com', password: '123456', role: 'admin').id }
+        let(:post_id) { User.posts.create(title: 'Test', text: 'This is the Posts page.', author_id: User.id).id }
         run_test!
       end
 
       response '404', 'User not found' do
         let(:user_id) { 'invalid' }
+        run_test!
+      end
+
+      response '404', 'Post not found' do
+        let(:post_id) { 'invalid' }
         run_test!
       end
     end
