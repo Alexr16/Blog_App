@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1, defaults: { format: :json } do #to specify the default format
+      resources :users do
+        resources :posts, only: [:index] do
+          resources :comments, only: [:index, :create]
+        end
+      end
+      resources :users
+        post '/auth/login', to: 'authentication#login'
+        get '/*a', to: 'application#not_found'
+    end
+  end
+
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
