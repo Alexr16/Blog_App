@@ -29,31 +29,31 @@ describe 'API' do
     end
   end
 
-#   path '/api/v1/pets/{id}' do
+  path '/api/v1/users/{id}/posts' do
 
-#     get 'Retrieves a pet' do
-#       tags 'Pets'
-#       produces 'application/json', 'application/xml'
-#       parameter name: :id, :in => :path, :type => :string
+    get 'Retrieves posts for a user' do
+      tags 'Users'
+      produces 'application/json', 'application/xml'
+      parameter name: :id, :in => :path, :type => :string
 
-#       response '200', 'name found' do
-#         schema type: :object,
-#           properties: {
-#             id: { type: :integer, },
-#             name: { type: :string },
-#             photo_url: { type: :string },
-#             status: { type: :string }
-#           },
-#           required: [ 'id', 'name', 'status' ]
+      response '200', 'Users posts' do
+        schema type: :object,
+          properties: {
+            id: { type: :integer, },
+            name: { type: :string },
+            email: { type: :string },
+            password: { type: :string }
+          },
+          required: [ 'id', 'name', 'status' ]
 
-#         let(:id) { Pet.create(name: 'foo', status: 'bar', photo_url: 'http://example.com/avatar.jpg').id }
-#         run_test!
-#       end
+        let(:id) { User.create(name: 'Chris', photo: 'https://i.stack.imgur.com/YQu5k.png', bio: 'Hello world', email: 'jorge@icloud.com', password: '123456', role: 'admin').id }
+        run_test!
+      end
 
-#       response '404', 'pet not found' do
-#         let(:id) { 'invalid' }
-#         run_test!
-#       end
-#     end
-#   end
+      response '404', 'User not found' do
+        let(:id) { 'invalid' }
+        run_test!
+      end
+    end
+  end
 end
